@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "72bbb65f-7bf7-429f-8957-6b57c861417f",
+		"name": "jira api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34770602"
+	},
+	"item": [
+		{
+			"name": "getprojects",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{jira_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "deepaktmdofficial@gmail.com:",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://deepaktmdofficial.atlassian.net/rest/api/3/project/search",
+					"protocol": "https",
+					"host": [
+						"deepaktmdofficial",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"project",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{jira_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "deepaktmdofficial@gmail.com:",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://deepaktmdofficial.atlassian.net/rest/api/3/users/search",
+					"protocol": "https",
+					"host": [
+						"deepaktmdofficial",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"users",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create jira issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{jira_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "deepaktmdofficial@gmail.com:",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"10006\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"10001\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"712020:63ca276b-6ebf-45af-88dc-b8fda27b6811\"\r\n    },\r\n    \"summary\": \"bug 1 by dk\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deepaktmdofficial.atlassian.net/rest/api/3/issue",
+					"protocol": "https",
+					"host": [
+						"deepaktmdofficial",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get issue type using projectid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{jira_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "deepaktmdofficial@gmail.com:",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"10000\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"10000\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"5b10a2844c20165700ede21g\"\r\n    },\r\n    \"summary\": \"Main order flow broken\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deepaktmdofficial.atlassian.net/rest/api/3/issuetype/project?projectId=10001",
+					"protocol": "https",
+					"host": [
+						"deepaktmdofficial",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issuetype",
+						"project"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "10001"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "jira_token",
+			"value": "ATATT3xFfGF0Z2Hic1nvGaPmGOz_UNpPG0UrO7hiZ8TcU14icFakmHUfZWRmvT_yJNVRLrTgWvP5bp413z8h2I9yX2Qr8vFSXyybD_0PNjEPwVPess2jybElBNkR_fsO5WMcTQGo1gLtxAH2nmds2Q1AhoHTLOnu92SkBbqvQbOCgMhtHuReMoQ=0985F214"
+		}
+	]
+}
