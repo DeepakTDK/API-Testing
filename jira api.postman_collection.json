@@ -193,6 +193,63 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "get issue",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{jira_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "deepaktmdofficial@gmail.com:",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deepaktmdofficial.atlassian.net/rest/api/2/issue/:issueIdOrKey",
+					"protocol": "https",
+					"host": [
+						"deepaktmdofficial",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						":issueIdOrKey"
+					],
+					"variable": [
+						{
+							"key": "issueIdOrKey",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
